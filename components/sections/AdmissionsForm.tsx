@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "../ui/Button";
+import { useSearchParams } from "next/navigation";
 
 const WEBHOOK_URL = "/api/enquiry";
 
@@ -27,10 +28,20 @@ export default function AdmissionsForm() {
   const [visitDate, setVisitDate] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const searchParams = useSearchParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    
+    // Extract UTM and Ad parameters
+    const utm_source = searchParams.get('utm_source') || '';
+    const utm_medium = searchParams.get('utm_medium') || '';
+    const utm_campaign = searchParams.get('utm_campaign') || '';
+    const campaign = searchParams.get('campaign') || '';
+    const ad_group = searchParams.get('ad_group') || '';
+    const ad_name = searchParams.get('ad_name') || '';
+    const ad_id = searchParams.get('ad_id') || '';
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -43,7 +54,14 @@ export default function AdmissionsForm() {
           grade,
           location,
           visitDate,
-          premise:"campbridge"
+          premise: "campbridge",
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          campaign,
+          ad_group,
+          ad_name,
+          ad_id
         }),
       });
       setSubmitted(true);

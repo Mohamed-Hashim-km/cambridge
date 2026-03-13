@@ -32,9 +32,12 @@ export default function StyledMap({
     const mapOptions = useMemo(() => ({
         styles: [
             { featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }] },
-            { featureType: "road", elementType: "geometry", stylers: [{ color: "#e5e5e5" }] },
-            { featureType: "water", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
-            { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+            { featureType: "water", elementType: "geometry", stylers: [{ color: "#e2e2e2" }] }, // Light gray for sea/river
+            { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#ffffff" }] }, // Crisp white for land
+            { featureType: "road", elementType: "geometry", stylers: [{ color: "#d1d1d1" }] }, // Slightly darker gray for roads
+            { featureType: "poi", stylers: [{ visibility: "off" }] },
+            { featureType: "transit", stylers: [{ visibility: "off" }] },
+            { featureType: "administrative", stylers: [{ visibility: "off" }] },
         ],
         disableDefaultUI: true,
         gestureHandling: "greedy",
@@ -67,12 +70,11 @@ export default function StyledMap({
                             <Circle
                                 key={loc.id}
                                 center={{ lat: loc.lat, lng: loc.lng }}
-                                radius={150} 
+                                radius={300} // Increased radius slightly to act as a dot at higher zoom or keep it visible
                                 options={{
-                                    fillColor: '#9CA3AF', 
-                                    fillOpacity: 0.8,
-                                    strokeColor: '#FFFFFF',
-                                    strokeWeight: 2,
+                                    fillColor: '#E31C22', // Red fill
+                                    fillOpacity: 1, // Solid fill
+                                    strokeWeight: 0, // No border
                                     clickable: false,
                                 }}
                             />

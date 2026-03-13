@@ -26,8 +26,8 @@ const MAP_DATA = [
     icon: "/icons/cityIcon.svg",
     points: [100],
     viewport: {
-      center: { lat: 12.85050601221967, lng: 75.06984111877208 },
-      zoom: 13,
+      center: { lat: 12.8655, lng: 74.850 }, // Decreased lng to push map to the right
+      zoom: 12, // slightly zoomed in
     },
   },
   {
@@ -37,7 +37,7 @@ const MAP_DATA = [
     points: [101],
     viewport: {
       center: { lat: 12.856852979948613, lng: 75.00882675405474 },
-      zoom: 13,
+      zoom: 11, // Reduced zoom to zoom out
     },
   },
   {
@@ -47,7 +47,7 @@ const MAP_DATA = [
     points: [102],
     viewport: {
       center: { lat: 12.901423573357576, lng: 75.04149806660762 },
-      zoom: 13,
+      zoom: 11,
     },
   },
   {
@@ -57,7 +57,7 @@ const MAP_DATA = [
     points: [103],
     viewport: {
       center: { lat: 12.88213544588077, lng: 75.03047979544309 },
-      zoom: 13,
+      zoom: 11,
     },
   },
   {
@@ -67,7 +67,7 @@ const MAP_DATA = [
     points: [104],
     viewport: {
       center: { lat: 12.795657685168187, lng: 74.8547907512623 },
-      zoom: 13,
+      zoom: 11,
     },
   },
   {
@@ -77,7 +77,7 @@ const MAP_DATA = [
     points: [105],
     viewport: {
       center: { lat: 12.884962867688321, lng: 74.83857338009977 },
-      zoom: 13,
+      zoom: 11,
     },
   },
   {
@@ -87,7 +87,7 @@ const MAP_DATA = [
     points: [106],
     viewport: {
       center: { lat: 12.907650090007605, lng: 74.84971614242019 },
-      zoom: 13,
+      zoom: 11,
     },
   },
 ];

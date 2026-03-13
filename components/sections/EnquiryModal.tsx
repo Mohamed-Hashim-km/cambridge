@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "../ui/Button";
+import { useSearchParams } from "next/navigation";
 
 const COUNTRY_CODES = [
   '+1', '+7', '+20', '+27', '+30', '+31', '+32', '+33', '+34', '+36',
@@ -32,10 +33,11 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
   const [visitDate, setVisitDate] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const searchParams = useSearchParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-         setSubmitted(true);
+         setSubmitting(true);
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -48,11 +50,18 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
           grade,
           location,
           visitDate,
-          premise:"campbridge"
+          premise: "campbridge",
+          utm_source: searchParams.get('utm_source') || '',
+          utm_medium: searchParams.get('utm_medium') || '',
+          utm_campaign: searchParams.get('utm_campaign') || '',
+          campaign: searchParams.get('campaign') || '',
+          ad_group: searchParams.get('ad_group') || '',
+          ad_name: searchParams.get('ad_name') || '',
+          ad_id: searchParams.get('ad_id') || ''
         }),
       });
      
-       
+         setSubmitting(false);
          onClose();
           setParentName("");
           setPhone("");
@@ -60,7 +69,7 @@ export default function EnquiryModal({ isOpen=true, onClose }: EnquiryModalProps
           setGrade("");
           setLocation("");
           setVisitDate("");
-   setSubmitted(false);
+ 
     } catch (err) {
       console.error('Webhook submission failed:', err);
     } finally {
