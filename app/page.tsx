@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -9,16 +10,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import Hero from "@/components/sections/Hero";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import LearningJourney from "@/components/sections/LearningJourney";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import WhatMakesUsDifferent from "@/components/sections/WhatMakesUsDifferent";
 import CampusFacilities from "@/components/sections/CampusFacilities";
-import AdmissionSteps from "@/components/sections/AdmissionSteps";
-import AdmissionsForm from "@/components/sections/AdmissionsForm";
 import Footer from "@/components/sections/Footer";
 import MapSection from "@/components/sections/MapSection";
-import EnquiryModal from "@/components/sections/EnquiryModal";
+
+// Dynamic imports for components that use useSearchParams
+const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
+const AdmissionSteps = dynamic(() => import("@/components/sections/AdmissionSteps"), { ssr: false });
+const AdmissionsForm = dynamic(() => import("@/components/sections/AdmissionsForm"), { ssr: false });
 const MAP_DATA = [
   {
     key: "kalladka",
@@ -26,7 +28,7 @@ const MAP_DATA = [
     icon: "/icons/cityIcon.svg",
     points: [100],
     viewport: {
-      center: { lat: 12.8655, lng: 74.850 }, // Decreased lng to push map to the right
+      center: { lat: 12.8655, lng: 74.85 }, // Decreased lng to push map to the right
       zoom: 12, // slightly zoomed in
     },
   },

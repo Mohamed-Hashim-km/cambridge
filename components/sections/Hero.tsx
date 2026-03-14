@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
-import EnquiryModal from "./EnquiryModal";
+import EnquiryModalWrapper from "./EnquiryModalWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -257,7 +257,7 @@ export default function Hero() {
         }}
       />
 
-      <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <EnquiryModalWrapper isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
