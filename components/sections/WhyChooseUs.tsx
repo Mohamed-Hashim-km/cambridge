@@ -1,14 +1,12 @@
 "use client";
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
+import React from 'react';
 
 const cardsData = [
   {
     title: "Confident\nCommunication",
     bgColor: "bg-[#E31C22]",
     svgOutline: (
+      // DESKTOP SVG
       <svg 
         className="absolute top-0 right-0 w-[120px] h-[120px] translate-x-2 -translate-y-2 pointer-events-none" 
         viewBox="0 0 108 98" 
@@ -22,12 +20,20 @@ const cardsData = [
           strokeWidth="5"
         />
       </svg>
+    ),
+    svgOutlineMobile: (
+      // REPLACE THIS WITH YOUR MOBILE SVG
+      <svg className="absolute top-3 -right-2  translate-x-2 -translate-y-2 pointer-events-none"  width="58" height="57" viewBox="0 0 58 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50.5078 1.57422L50.8018 2.72754L51.8867 2.23926L76.0742 -8.62793L60.0117 12.3057L59.2773 13.2627L60.3535 13.8066L83.9873 25.7568L57.4541 26.3623L56.2559 26.3896L56.4971 27.5635L61.8076 53.3467L44.7646 33.1484L44 32.2422L43.2354 33.1484L26.1914 53.3467L31.5029 27.5635L31.7441 26.3896L30.5459 26.3623L4.01074 25.7568L27.6426 13.8066L28.7188 13.2627L27.9844 12.3057L11.9209 -8.62793L36.1084 2.23926L37.1934 2.72754L37.4873 1.5752L43.999 -23.9551L50.5078 1.57422Z" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+</svg>
+
     )
   },
   {
     title: "Safe to Thrive",
     bgColor: "bg-[#F68025]",
     svgOutline: (
+      // DESKTOP SVG
       <svg 
         className="absolute top-3 -right-4 w-[120px] h-[120px] translate-x-2 -translate-y-2 pointer-events-none" 
         width="74" 
@@ -43,12 +49,20 @@ const cardsData = [
           strokeWidth="5"
         />
       </svg>
+    ),
+    svgOutlineMobile: (
+      // REPLACE THIS WITH YOUR MOBILE SVG
+     <svg className="absolute top-3 -right-1  translate-x-2 -translate-y-2 pointer-events-none" width="41" height="52" viewBox="0 0 41 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.5507 -3.57161C23.3083 -7.736 27.4984 -10.4379 32.3552 -11.2261C37.157 -11.9924 42.2681 -10.8274 46.7734 -7.84419L46.7758 -7.84258C51.2364 -4.90485 54.3042 -0.549575 56.337 5.95187L56.3365 5.95268L56.4739 6.40322C57.1325 8.56328 57.9182 13.86 58.6516 19.826C59.3796 25.7477 60.0434 32.2102 60.4723 36.6199L60.4721 36.6221C60.7392 39.2946 59.0966 41.7752 56.5318 42.5725L56.53 42.5736L53.0258 43.6628C49.2276 44.8353 44.661 46.2177 40.3596 47.4484C34.5819 49.1014 29.3983 50.4467 27.1484 50.688L27.1476 50.6875L26.4964 50.7529C19.8144 51.3721 14.6649 50.2399 10.2482 47.3152C5.75259 44.3383 2.6667 40.0904 1.50631 35.3611L1.50495 35.3613C0.340535 30.5724 1.19417 25.6603 3.94495 21.5059C5.86642 18.6042 8.49051 16.5137 11.7655 15.2601L12.4287 15.0211C14.3282 14.3899 16.3033 14.0239 18.3012 13.9635L19.7041 13.9215L19.2062 12.6092C18.4941 10.7324 18.0409 8.76973 17.8834 6.77643L17.882 6.77671C17.5953 2.99499 18.5003 -0.475121 20.5507 -3.57161Z" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+</svg>
+
     )
   },
   {
     title: "Beyond the\nClassroom",
     bgColor: "bg-[#3F9C49]",
     svgOutline: (
+      // DESKTOP SVG
       <svg 
         className="absolute top-0 -right-0 w-[120px] h-[120px] translate-x-2 -translate-y-2 pointer-events-none" 
         width="124" 
@@ -64,12 +78,20 @@ const cardsData = [
           strokeWidth="5"
         />
       </svg>
+    ),
+    svgOutlineMobile: (
+      // REPLACE THIS WITH YOUR MOBILE SVG
+      <svg className="absolute top-3 -right-1  translate-x-2 -translate-y-2 pointer-events-none" width="56" height="52" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.1006 -18.54C25.0087 -27.5115 37.5333 -30.4069 41.3135 -21.9951L42.5479 -19.248L43.2988 -17.5771L44.2979 -19.1123L45.9414 -21.6367H45.9424C51.0587 -29.5009 63.2795 -24.4394 61.3506 -15.3262L60.7256 -12.3828L60.3428 -10.582L62.0615 -11.2412L64.8818 -12.3242C73.6797 -15.6964 80.5574 -4.45706 73.6152 1.78125L71.3691 3.7959L69.9912 5.03223L71.7812 5.50684L74.7061 6.28223C83.6373 8.64877 82.8019 21.3938 73.8535 22.7383L73.4209 22.7939L70.4121 23.1123L68.5742 23.3066L69.7422 24.7383L71.6484 27.0752V27.0762C77.5471 34.295 69.0196 44.3612 60.8418 39.6816L58.2178 38.1807L56.624 37.2695L56.7227 39.1025L56.8848 42.1074C57.3908 51.4163 44.5268 54.5406 40.6865 45.9951L39.4521 43.248L38.7012 41.5771L37.7021 43.1123L36.0586 45.6367H36.0576C30.9413 53.5009 18.7205 48.4394 20.6494 39.3262L21.2744 36.3828L21.6572 34.582L19.9385 35.2412L17.1172 36.3232C8.31959 39.6948 1.44275 28.4569 8.38477 22.2188L10.6309 20.2041L12.0088 18.9678L10.2188 18.4932L7.29395 17.7178C-1.77913 15.3136 -0.772658 2.19855 8.5791 1.20605L8.57812 1.20508L11.5879 0.887695L13.4258 0.693359L12.2578 -0.738281L10.3516 -3.0752V-3.07617L10.085 -3.41699C4.71925 -10.6064 13.1084 -20.288 21.1582 -15.6816L23.7822 -14.1807L25.376 -13.2695L25.2773 -15.1025L25.1152 -18.1074L25.1006 -18.54Z" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+</svg>
+
     )
   },
   {
     title: "Academic\nExcellence",
     bgColor: "bg-[#0095D6]",
     svgOutline: (
+      // DESKTOP SVG
       <svg 
         className="absolute top-0 -right-2 w-[120px] h-[120px] translate-x-2 -translate-y-2 pointer-events-none" 
         width="103" 
@@ -85,45 +107,84 @@ const cardsData = [
           strokeWidth="5"
         />
       </svg>
+    ),
+    svgOutlineMobile: (
+      // REPLACE THIS WITH YOUR MOBILE SVG
+      <svg className="absolute top-2 -right-1  translate-x-2 -translate-y-2 pointer-events-none" width="40" height="56" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M27.7109 3.18945C29.3423 0.361565 33.3454 0.272745 35.125 2.92383L35.29 3.18945L61.4062 48.4346C63.0898 51.3502 60.983 54.9997 57.6152 55H5.38574C2.01479 55 -0.0895357 51.3546 1.59473 48.4346L27.7109 3.18945Z" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+</svg>
+
     )
   }
 ];
 
+// Added svgOutlineMobile to props
 interface CardProps {
   card: {
     title: string;
     bgColor: string;
     svgOutline: React.ReactNode;
+    svgOutlineMobile: React.ReactNode; 
   };
 }
 
 const Card = ({ card }: CardProps) => (
-  <div className={`${card.bgColor} rounded-2xl px-6 py-8 relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2 shadow-sm min-h-[220px] h-full flex items-center lg:items-start`}>
-    <h3 className="text-white text-2xl lg:text-[28px] font-semibold whitespace-pre-line relative z-10 leading-[1.2]">
+  <div className={`${card.bgColor} rounded-2xl px-2 py-8 relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2 shadow-sm md:min-h-[220px] h-full flex items-center lg:items-start`}>
+    <h3 className="text-white text-xl lg:text-[28px] font-semibold whitespace-pre-line relative z-10 leading-[1.2]">
       {card.title}
     </h3>
-    {card.svgOutline}
+    
+    {/* SVG Wrapper logic right here */}
+    <div className="hidden lg:block">
+      {card.svgOutline}
+    </div>
+    <div className="block lg:hidden">
+      {card.svgOutlineMobile}
+    </div>
+
   </div>
 );
 
 export default function WhyChooseUs() {
-  // 1. ADD STATE FOR CUSTOM NAVIGATION BUTTONS
-  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
-  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
-
   return (
-    <section className="w-full bg-white relative pt-10 md:pt-20">
-      <div className="container mx-auto px-4">
+    <section className="w-full relative bg-white  pt-10 md:pt-20">
+       <div className="md:w-2/5 md:hidden absolute  z-50 -top-10 right-0">
+             <svg width="124" height="121" viewBox="0 0 124 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M53.2075 11.0581L52.6739 13.5846L55.0818 12.6557C63.4485 9.43089 70.0661 20.1923 63.4123 26.2039L61.4952 27.9332L63.992 28.5986C72.6585 30.9077 71.6868 43.5039 62.7667 44.4559L60.1974 44.7293L61.8246 46.7353C67.4804 53.6955 59.2882 63.3172 51.5144 58.844L49.2745 57.556L49.4128 60.1352C49.8971 69.0916 37.6138 72.0595 33.9542 63.8706L32.9001 61.5121L31.4968 63.6796C26.625 71.2096 14.9446 66.3905 16.7925 57.6153L17.3261 55.0888L14.9182 56.0177C6.55148 59.2426 -0.0661388 48.4811 6.58772 42.4696L8.50482 40.7402L6.00797 40.0749C-2.65851 37.7658 -1.68678 25.1696 7.23334 24.2176L9.80265 23.9442L8.17542 21.9382C2.51964 14.978 10.7118 5.35622 18.4856 9.82946L20.7255 11.1174L20.5872 8.53822C20.1029 -0.418136 32.3862 -3.38602 36.0458 4.80283L37.0999 7.16133L38.5032 4.99388C43.375 -2.53617 55.0554 2.28293 53.2075 11.0581Z" fill="#FFE04F"/>
+<path d="M40.3856 41.8242C37.4737 41.8242 34.328 41.419 31.0406 40.3781C20.7798 37.1302 15.2492 29.5211 13.3486 26.4017C13.0159 25.8582 13.1905 25.15 13.734 24.8173C14.2775 24.4846 14.9857 24.6592 15.3184 25.2027C17.084 28.1014 22.2193 35.1703 31.7389 38.181C43.482 41.8966 53.3376 36.8733 56.0815 35.2461C56.6283 34.92 57.3365 35.1011 57.6626 35.648C57.9887 36.1948 57.8075 36.903 57.2607 37.2291C55.0768 38.5269 48.6931 41.8275 40.3922 41.8275L40.3856 41.8242Z" fill="#191919"/>
+<path d="M29.9528 30.6587C29.439 30.6587 28.9218 30.5928 28.4113 30.4578C25.7069 29.7397 23.8425 27.2725 23.8754 24.4561C23.882 23.8204 24.4189 23.3164 25.0415 23.3164C25.6772 23.323 26.1878 23.8467 26.1812 24.4825C26.1615 26.2415 27.3209 27.7798 29.0042 28.2277C30.7236 28.6856 32.5617 27.8555 33.3786 26.2546C33.6685 25.6881 34.3635 25.4641 34.93 25.754C35.4966 26.0438 35.7206 26.7389 35.4307 27.3054C34.3635 29.3905 32.2059 30.6587 29.9495 30.6587H29.9528Z" fill="#191919"/>
+<path d="M43.4997 34.1235C42.9858 34.1235 42.4687 34.0577 41.9581 33.9226C39.2538 33.2045 37.3894 30.7373 37.4223 27.921C37.4289 27.2885 37.9428 26.7812 38.5752 26.7812H38.5884C39.2241 26.7878 39.7347 27.3116 39.7281 27.9473C39.7083 29.7063 40.8678 31.2446 42.551 31.6926C44.2705 32.1504 46.1086 31.3204 46.9255 29.7195C47.2153 29.1529 47.9104 28.9289 48.4769 29.2188C49.0435 29.5087 49.2675 30.2037 48.9776 30.7703C47.9104 32.8554 45.7528 34.1235 43.4964 34.1235H43.4997Z" fill="#191919"/>
+<path d="M97.9882 54.0857L70.6031 58.2074C67.9144 58.6109 65.6443 60.421 64.6487 62.9551L54.5273 88.7299C53.5318 91.2603 53.9655 94.1338 55.6624 96.2606L72.9223 117.914C74.6193 120.041 77.3193 121.104 80.0118 120.697L107.397 116.575C110.086 116.172 112.356 114.361 113.351 111.827L123.473 86.0525C124.468 83.5222 124.035 80.6487 122.338 78.5218L105.078 56.8687C103.381 54.7419 100.681 53.6784 97.9882 54.0857Z" fill="#73C3E6"/>
+<path d="M76.6873 92.0621C80.0556 91.0554 81.7153 86.6562 80.3943 82.2363C79.0733 77.8164 75.2719 75.0494 71.9036 76.0561C68.5352 77.0628 66.8756 81.462 68.1966 85.8819C69.5176 90.3018 73.319 93.0688 76.6873 92.0621Z" fill="white"/>
+<path d="M72.9033 88.002C74.6924 88.002 76.1427 86.5517 76.1427 84.7627C76.1427 82.9737 74.6924 81.5234 72.9033 81.5234C71.1143 81.5234 69.6641 82.9737 69.6641 84.7627C69.6641 86.5517 71.1143 88.002 72.9033 88.002Z" fill="#050505"/>
+<path d="M91.3618 85.2871C90.6604 85.2871 90.0759 84.7328 90.0457 84.0239C89.9024 80.7355 92.0934 77.7489 95.2573 76.9193C98.3533 76.1085 101.608 77.5113 103.165 80.332C103.516 80.9693 103.286 81.7726 102.648 82.127C102.011 82.4777 101.208 82.2477 100.853 81.6104C99.8805 79.8493 97.8554 78.9707 95.9247 79.476C93.9562 79.9926 92.5911 81.8555 92.6816 83.9107C92.7118 84.6385 92.1499 85.2532 91.4221 85.2871C91.4033 85.2871 91.3844 85.2871 91.3618 85.2871Z" fill="#191919"/>
+<path d="M86.5427 106.555C80.098 106.555 75.1655 103.41 73.2046 101.936C72.6239 101.498 72.507 100.669 72.9444 100.088C73.3819 99.5073 74.2115 99.3904 74.7922 99.8278C76.7343 101.291 81.9647 104.602 88.6167 103.791C96.8111 102.792 101.284 96.3397 102.46 94.3825C102.837 93.7565 103.648 93.5567 104.27 93.93C104.896 94.3071 105.096 95.1178 104.723 95.7401C103.392 97.9536 98.3195 105.262 88.9373 106.408C88.1189 106.506 87.3195 106.555 86.5465 106.555H86.5427Z" fill="#191919"/>
+</svg>
+
+
+            </div>
+        <div className="absolute md:hidden   inset-0 w-[100vw] z-0 pointer-events-none flex items-end justify-center">
+        <svg width="435" height="359" viewBox="0 0 435 359" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.66406 1.11049C104.244 154.762 355.365 204.571 432.382 357.73" stroke="url(#paint0_linear_128_31)" stroke-width="4"/>
+<defs>
+<linearGradient id="paint0_linear_128_31" x1="-93.6111" y1="-348.276" x2="-350.661" y2="2108.34" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E31C22"/>
+<stop offset="1" stop-color="#FB7824"/>
+</linearGradient>
+</defs> 
+</svg>
+      </div>
+      <div className="container relative mx-auto px-4">
         <div className="border-b-[3px] border-[#DBDBDB] pb-12 md:pb-32">
           
           <div className="flex flex-col md:flex-row items-center justify-between md:gap-8 pb-8 md:mb-16">
-            <div className="md:w-3/5">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 max-w-xl leading-tight">
+            <div className="md:w-3/5 mt-5 md:mt-0">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-12 max-w-xl leading-tight">
                 Choosing the right school is one of the most important decisions for your child.
               </h2>
             </div>
             {/* Sticker SVG */}
-            <div className="md:w-2/5 flex justify-end">
+            <div className="md:w-2/5 hidden  md:flex justify-end">
                <svg width="300" height="245" viewBox="0 0 399 326" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[280px] h-auto object-contain drop-shadow-md">
                 <path d="M161.529 150.571L159.909 158.241L167.219 155.421C192.619 145.631 212.709 178.301 192.509 196.551L186.689 201.801L194.269 203.821C220.579 210.831 217.629 249.071 190.549 251.961L182.749 252.791L187.689 258.881C204.859 280.011 179.989 309.221 156.389 295.641L149.589 291.731L150.009 299.561C151.479 326.751 114.189 335.761 103.079 310.901L99.8792 303.741L95.6192 310.321C80.8292 333.181 45.3692 318.551 50.9792 291.911L52.5992 284.241L45.2892 287.061C19.8892 296.851 -0.200787 264.181 19.9992 245.931L25.8192 240.681L18.2392 238.661C-8.07079 231.651 -5.12078 193.411 21.9592 190.521L29.7592 189.691L24.8192 183.601C7.64921 162.471 32.5192 133.261 56.1192 146.841L62.9192 150.751L62.4992 142.921C61.0292 115.731 98.3192 106.721 109.429 131.581L112.629 138.741L116.889 132.161C131.679 109.301 167.139 123.931 161.529 150.571Z" fill="#FFE04F"/>
                 <path d="M122.589 243.971C113.749 243.971 104.199 242.741 94.2188 239.581C63.0688 229.721 46.2788 206.621 40.5088 197.151C39.4988 195.501 40.0288 193.351 41.6788 192.341C43.3288 191.331 45.4788 191.861 46.4888 193.511C51.8488 202.311 67.4388 223.771 96.3388 232.911C131.989 244.191 161.909 228.941 170.239 224.001C171.899 223.011 174.049 223.561 175.039 225.221C176.029 226.881 175.479 229.031 173.819 230.021C167.189 233.961 147.809 243.981 122.609 243.981L122.589 243.971Z" fill="#191919"/>
@@ -138,57 +199,7 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* 2. Mobile Swiper (Active below 1024px) */}
-          <div className="lg:hidden relative">
-            <Swiper
-              modules={[Navigation]}
-              // 2. PASS THE STATE REFS TO SWIPER NAVIGATION
-              navigation={{
-                prevEl: prevEl,
-                nextEl: nextEl,
-              }}
-              spaceBetween={16}
-              slidesPerView={1.1}
-              breakpoints={{
-                640: { slidesPerView: 2.2 }
-              }}
-            >
-              {cardsData.map((card, idx) => (
-                <SwiperSlide key={idx}>
-                  <Card card={card} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Custom SVG Navigation Buttons */}
-            <div className="flex justify-end items-center gap-4 mt-10">
-              {/* 3. ASSIGN THE REF SETTER TO THE BUTTONS */}
-              <button 
-                ref={(node) => setPrevEl(node)} 
-                className="transition-transform active:scale-95 disabled:opacity-50 disabled:active:scale-100"
-              >
-                <svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" fill="#FFC8CA" fillOpacity="0.67"/>
-                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" stroke="#FFBBBB"/>
-                  <path d="M17.1829 12.748L12.7488 17.4038M12.7488 17.4038L17.1829 22.0596M12.7488 17.4038L23.3906 17.4038" stroke="#E31C22" strokeOpacity="0.26" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              
-              <button 
-                ref={(node) => setNextEl(node)} 
-                className="transition-transform active:scale-95 disabled:opacity-50 disabled:active:scale-100"
-              >
-                <svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" fill="#FFC8CA" fillOpacity="0.67"/>
-                  <rect x="0.5" y="0.5" width="35.1379" height="33.8076" rx="16.9038" stroke="#FFBBBB"/>
-                  <path d="M18.9558 12.748L23.3899 17.4038M23.3899 17.4038L18.9558 22.0596M23.3899 17.4038L12.748 17.4038" stroke="#E31C22" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* 3. Original Desktop Grid (Active from 1024px up) */}
-          <div className="hidden lg:grid lg:grid-cols-4 gap-8 h-[220px]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:h-[220px]">
             {cardsData.map((card, idx) => (
               <Card key={idx} card={card} />
             ))}

@@ -47,7 +47,10 @@ export default function StyledMap({
     disableDefaultUI: true,
     gestureHandling: "none", 
   }), []);
-
+const handleMarkerClick = (lat: number, lng: number) => {
+  const url = `https://www.google.com/maps?q=${lat},${lng}`;
+  window.open(url, "_blank");
+};
   return (
     <div className="h-full w-full">
       <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!}>
@@ -59,6 +62,9 @@ export default function StyledMap({
         >
           {mainMarkerPosition && (
             <Marker 
+            onClick={() =>
+    handleMarkerClick(mainMarkerPosition.lat, mainMarkerPosition.lng)
+  }
               position={mainMarkerPosition} 
               icon={({ 
                 url: customMarkerImage, 

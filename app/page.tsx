@@ -110,8 +110,21 @@ export default function LandingPage() {
           </svg>
         </div>
 
+          <div className="absolute top-54 md:hidden left-0 w-full lg:w-[1712px] xl:w-[2200px] z-0 pointer-events-none ">
+          <svg width="522" height="357" viewBox="0 0 522 357" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.62695 1.16309C110.339 153.249 312.569 270.897 520.807 355.026" stroke="url(#paint0_linear_128_35)" stroke-width="4"/>
+<defs>
+<linearGradient id="paint0_linear_128_35" x1="440.491" y1="-1911.7" x2="603.343" y2="552.957" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E31C22"/>
+<stop offset="1" stop-color="#FB7824"/>
+</linearGradient>
+</defs>
+</svg>
+
+        </div>
+
         <WhatMakesUsDifferent />
-        <div className="container mx-auto px-4 md:mt-24 mt-3">
+        <div className="container mx-auto px-4 md:mt-24 mt-8">
           <div className="h-[3px] w-full bg-[#DBDBDB]"></div>
         </div>
         <CampusFacilities />
