@@ -60,7 +60,7 @@ export default function LearningJourney() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveIndex(index)}
-                    className={`text-left py-4 md:py-5 text-lg md:text-xl transition-all duration-300 focus:outline-none ${
+                    className={`text-left py-4 md:py-5 text-lg md:text-xl cursor-pointer transition-all duration-300 focus:outline-none ${
                       !isLast ? "border-b border-[#DBDBDB]" : ""
                     } ${isActive ? "text-[#E31C22] font-bold" : "text-primary font-semibold hover:text-primary/90"}`}
                   >

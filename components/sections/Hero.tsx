@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
-import EnquiryModalWrapper from "./EnquiryModalWrapper";
+import { useModal } from "@/context/ModalContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -20,7 +20,7 @@ const campusData = [
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openEnquiryModal } = useModal();
   const swiperRef = useRef<SwiperType | null>(null);
 
   const updateCompletedBullets = useCallback((swiper: SwiperType) => {
@@ -51,18 +51,30 @@ export default function Hero() {
       </div>
 
       {/* --- NAVBAR SECTION --- */}
-      <nav className="w-full relative z-50">
-        {/* Adjusted padding: py-6 for mobile, py-10 for desktop */}
-        <div className="container mx-auto px-4 py-6 md:py-10 flex justify-between items-center">
-          <Image src="/svgs/navLogo.svg" width={220} height={220} alt="Logo" className="hidden md:block" />
-          <Image src="/svgs/navLogo.svg" width={180} height={180} alt="Logo" className="block md:hidden" />
-          <div>
-            <Button className="" onClick={() => setIsModalOpen(true)}>
-              Apply Now
-            </Button>
-          </div>
-        </div>
-      </nav>
+    <nav className="w-full relative z-50">
+  <div className="container mx-auto px-4 py-6 md:py-10 flex justify-between items-center">
+    
+    {/* FIX: Single Image component. 
+      We set the max width/height for Next.js intrinsic sizing, 
+      then use Tailwind (w-[180px] md:w-[220px] h-auto) to scale it responsibly.
+    */}
+    <Image 
+      src="/svgs/navLogo.svg" 
+      width={220} 
+      height={220} 
+      alt="Logo" 
+      className="w-[180px] md:w-[220px] h-auto"
+      priority 
+    />
+
+    <div>
+      <Button onClick={openEnquiryModal}>
+        Apply Now
+      </Button>
+    </div>
+
+  </div>
+</nav>
 
       {/* --- HERO SECTION --- */}
       <section className="relative w-full ">
@@ -87,7 +99,7 @@ export default function Hero() {
                 </h2>
 
                 <div>
-                  <Button variant="secondary" className="w-full md:w-auto" onClick={() => setIsModalOpen(true)}>
+                  <Button variant="secondary" className="w-full md:w-auto" onClick={openEnquiryModal}>
                     Book a Campus Visit
                   </Button>
                 </div>
@@ -257,7 +269,6 @@ export default function Hero() {
         }}
       />
 
-      <EnquiryModalWrapper isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

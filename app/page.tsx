@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import React from "react";
 import dynamic from "next/dynamic";
@@ -16,11 +16,14 @@ import WhatMakesUsDifferent from "@/components/sections/WhatMakesUsDifferent";
 import CampusFacilities from "@/components/sections/CampusFacilities";
 import Footer from "@/components/sections/Footer";
 import MapSection from "@/components/sections/MapSection";
+import Hero from "@/components/sections/Hero";
+import AdmissionSteps from "@/components/sections/AdmissionSteps";
+import AdmissionsForm from "@/components/sections/AdmissionsForm";
 
 // Dynamic imports for components that use useSearchParams
-const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
-const AdmissionSteps = dynamic(() => import("@/components/sections/AdmissionSteps"), { ssr: false });
-const AdmissionsForm = dynamic(() => import("@/components/sections/AdmissionsForm"), { ssr: false });
+// const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
+// const AdmissionSteps = dynamic(() => import("@/components/sections/AdmissionSteps"), { ssr: false });
+// const AdmissionsForm = dynamic(() => import("@/components/sections/AdmissionsForm"), { ssr: false });
 const MAP_DATA = [
   {
     key: "kalladka",
@@ -28,7 +31,7 @@ const MAP_DATA = [
     icon: "/icons/cityIcon.svg",
     points: [100],
     viewport: {
-      center: { lat: 12.8655, lng: 74.85 }, // Decreased lng to push map to the right
+     center: { lat: 12.8655, lng: 74.85 }, // Decreased lng to push map to the right
       zoom: 12, // slightly zoomed in
     },
   },
@@ -38,7 +41,7 @@ const MAP_DATA = [
     icon: "/icons/itIcon.svg",
     points: [101],
     viewport: {
-      center: { lat: 12.856852979948613, lng: 75.00882675405474 },
+      center: { lat: 12.851351069014475, lng: 75.00883750893504 },
       zoom: 11, // Reduced zoom to zoom out
     },
   },
@@ -48,7 +51,7 @@ const MAP_DATA = [
     icon: "/icons/educationIcon.svg",
     points: [102],
     viewport: {
-      center: { lat: 12.901423573357576, lng: 75.04149806660762 },
+      center: { lat: 12.901486321309694, lng: 75.04150879544346 },
       zoom: 11,
     },
   },
@@ -58,7 +61,7 @@ const MAP_DATA = [
     icon: "/icons/everydayIcon.svg",
     points: [103],
     viewport: {
-      center: { lat: 12.88213544588077, lng: 75.03047979544309 },
+      center: { lat: 12.882156363478204, lng: 75.03050125311479 },
       zoom: 11,
     },
   },
@@ -68,7 +71,7 @@ const MAP_DATA = [
     icon: "/icons/itIcon.svg",
     points: [104],
     viewport: {
-      center: { lat: 12.795657685168187, lng: 74.8547907512623 },
+      center: { lat: 12.795573953754454, lng: 74.85479072521217 },
       zoom: 11,
     },
   },
@@ -78,7 +81,7 @@ const MAP_DATA = [
     icon: "/icons/educationIcon.svg",
     points: [105],
     viewport: {
-      center: { lat: 12.884962867688321, lng: 74.83857338009977 },
+      center: { lat: 12.92532166130058, lng: 74.83907947401185 },
       zoom: 11,
     },
   },
@@ -88,7 +91,7 @@ const MAP_DATA = [
     icon: "/icons/everydayIcon.svg",
     points: [106],
     viewport: {
-      center: { lat: 12.907650090007605, lng: 74.84971614242019 },
+      center: { lat: 12.882739262990897, lng: 74.83944018195062 },
       zoom: 11,
     },
   },

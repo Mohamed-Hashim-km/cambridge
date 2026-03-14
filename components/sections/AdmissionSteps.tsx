@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "../ui/Button";
-import EnquiryModalWrapper from "./EnquiryModalWrapper";
+import { useModal } from "@/context/ModalContext";
 
 const stepsData = [
   {
@@ -35,7 +35,7 @@ const stepsData = [
 export default function AdmissionSteps() {
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openEnquiryModal } = useModal();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -117,14 +117,12 @@ export default function AdmissionSteps() {
         </div>
 
         {/* CTA Button */}
-        <Button className="mt- md:mt-14" onClick={() => setIsModalOpen(true)}>
+        <Button className="mt- md:mt-14" onClick={openEnquiryModal}>
           Book a Campus Visit
         </Button>
 
         {/* Bottom Horizontal Line */}
-        <div className="w-full border-b-[3px] border-[#DBDBDB] mt-16 md:mt-20"></div>
       </div>
-      <EnquiryModalWrapper isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
