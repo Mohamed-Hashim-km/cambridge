@@ -1,7 +1,4 @@
-// "use client";
-
-import React from "react";
-import dynamic from "next/dynamic";
+import React, { Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -19,11 +16,6 @@ import MapSection from "@/components/sections/MapSection";
 import Hero from "@/components/sections/Hero";
 import AdmissionSteps from "@/components/sections/AdmissionSteps";
 import AdmissionsForm from "@/components/sections/AdmissionsForm";
-
-// Dynamic imports for components that use useSearchParams
-// const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
-// const AdmissionSteps = dynamic(() => import("@/components/sections/AdmissionSteps"), { ssr: false });
-// const AdmissionsForm = dynamic(() => import("@/components/sections/AdmissionsForm"), { ssr: false });
 const MAP_DATA = [
   {
     key: "kalladka",
@@ -127,7 +119,9 @@ export default function LandingPage() {
 
       <MapSection data={MAP_DATA} mainMarkerPosition={{ lat: 12.866519719791675, lng: 74.9199120224277 }} customMarkerImage="/svgs/location.svg" />
       <AdmissionSteps />
-      <AdmissionsForm />
+      <Suspense fallback={<div className="w-full h-96" />}>
+        <AdmissionsForm />
+      </Suspense>
       <Footer />
     </div>
   );
