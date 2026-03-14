@@ -148,7 +148,7 @@ const Card = ({ card }: CardProps) => (
 export default function WhyChooseUs() {
   return (
     <section className="w-full relative bg-white  pt-10 md:pt-20">
-       <div className="md:w-2/5 md:hidden absolute  z-50 -top-10 right-0">
+       <div className="md:w-2/5 md:hidden absolute  z-50 -top-20 right-0">
              <svg width="124" height="121" viewBox="0 0 124 121" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M53.2075 11.0581L52.6739 13.5846L55.0818 12.6557C63.4485 9.43089 70.0661 20.1923 63.4123 26.2039L61.4952 27.9332L63.992 28.5986C72.6585 30.9077 71.6868 43.5039 62.7667 44.4559L60.1974 44.7293L61.8246 46.7353C67.4804 53.6955 59.2882 63.3172 51.5144 58.844L49.2745 57.556L49.4128 60.1352C49.8971 69.0916 37.6138 72.0595 33.9542 63.8706L32.9001 61.5121L31.4968 63.6796C26.625 71.2096 14.9446 66.3905 16.7925 57.6153L17.3261 55.0888L14.9182 56.0177C6.55148 59.2426 -0.0661388 48.4811 6.58772 42.4696L8.50482 40.7402L6.00797 40.0749C-2.65851 37.7658 -1.68678 25.1696 7.23334 24.2176L9.80265 23.9442L8.17542 21.9382C2.51964 14.978 10.7118 5.35622 18.4856 9.82946L20.7255 11.1174L20.5872 8.53822C20.1029 -0.418136 32.3862 -3.38602 36.0458 4.80283L37.0999 7.16133L38.5032 4.99388C43.375 -2.53617 55.0554 2.28293 53.2075 11.0581Z" fill="#FFE04F"/>
 <path d="M40.3856 41.8242C37.4737 41.8242 34.328 41.419 31.0406 40.3781C20.7798 37.1302 15.2492 29.5211 13.3486 26.4017C13.0159 25.8582 13.1905 25.15 13.734 24.8173C14.2775 24.4846 14.9857 24.6592 15.3184 25.2027C17.084 28.1014 22.2193 35.1703 31.7389 38.181C43.482 41.8966 53.3376 36.8733 56.0815 35.2461C56.6283 34.92 57.3365 35.1011 57.6626 35.648C57.9887 36.1948 57.8075 36.903 57.2607 37.2291C55.0768 38.5269 48.6931 41.8275 40.3922 41.8275L40.3856 41.8242Z" fill="#191919"/>
@@ -178,7 +178,7 @@ export default function WhyChooseUs() {
         <div className="border-b-[3px] border-[#DBDBDB] pb-12 md:pb-32">
           
           <div className="flex flex-col md:flex-row items-center justify-between md:gap-8 pb-8 md:mb-16">
-            <div className="md:w-3/5 mt-5 md:mt-0">
+            <div className="md:w-3/5 mt-10 md:mt-0">
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-12 max-w-xl leading-tight">
                 Choosing the right school is one of the most important decisions for your child.
               </h2>
