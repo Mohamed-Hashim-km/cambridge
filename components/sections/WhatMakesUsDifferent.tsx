@@ -8,7 +8,7 @@ const features = [
   {
     id: 1,
     title: "Inquiry Based Learning",
-    description: "Students learn through understanding, questioning and exploration.",
+    description: "Students learn through understanding, questioning \n and exploration.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M25 0L29.2485 16.8182L45.0467 9.65406L34.5482 23.4628L50 31.3486L32.6573 31.748L36.1263 48.7442L25 35.4359L13.8736 48.7442L17.3427 31.748L0 31.3486L15.4494 23.4628L4.95092 9.65406L20.7491 16.8182L25 0Z" fill="#E31C22"/>
@@ -30,7 +30,7 @@ const features = [
   {
     id: 3,
     title: "Sports Infrastructure",
-    description: "Turf ground for football and cricket with multi-court sports facilities.",
+    description: "Turf ground for football and cricket with multi-court \n sports facilities.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M30.4043 6.31892L30.0994 7.76263L31.4753 7.23183C36.2563 5.38908 40.0378 11.5385 36.2356 14.9736L35.1401 15.9618L36.5669 16.3421C41.5191 17.6615 40.9639 24.8594 35.8667 25.4033L34.3985 25.5596L35.3283 26.7059C38.5602 30.6831 33.879 36.1813 29.4368 33.6251L28.1569 32.8892L28.2359 34.363C28.5126 39.4809 21.4936 41.1768 19.4024 36.4975L18.8001 35.1498L17.9982 36.3883C15.2143 40.6912 8.53975 37.9374 9.59571 32.923L9.90064 31.4793L8.52469 32.0101C3.74371 33.8529 -0.0377918 27.7035 3.76441 24.2683L4.8599 23.2801L3.43313 22.8999C-1.51915 21.5804 -0.963874 14.3826 4.13334 13.8386L5.60152 13.6824L4.67167 12.5361C1.4398 8.55883 6.12102 3.0607 10.5632 5.61683L11.8432 6.3528L11.7641 4.87898C11.4874 -0.238935 18.5064 -1.93487 20.5976 2.74448L21.2 4.09219L22.0018 2.85365C24.7857 -1.44924 31.4603 1.30453 30.4043 6.31892Z" fill="#3F9C49"/>
@@ -134,7 +134,7 @@ export default function WhatMakesUsDifferent() {
                           className="overflow-hidden"
                         >
                           <div className="ml-11 lg:ml-[60px] pb-2 pt-2">
-                            <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1 m-0">
+                            <p className="text-primary text-sm md:text-base whitespace-pre-line leading-relaxed flex-1 m-0">
                               {feature.description}
                             </p>
                           </div>
@@ -159,7 +159,7 @@ export default function WhatMakesUsDifferent() {
                         className="hidden sm:block overflow-hidden origin-right flex-shrink-0"
                       >
                         {/* We put the actual image size on this inner wrapper, so the outer motion.div neatly unmasks it instead of popping it into existence */}
-                        <div className="w-[100px] lg:w-[130px] h-[70px] lg:h-[75px] relative rounded-md overflow-hidden shadow-sm bg-gray-200">
+                        <div className="w-[100px] lg:w-[130px] h-[70px] lg:h-[110px] relative rounded-md overflow-hidden shadow-sm bg-gray-200">
                           <Image 
                             src={feature.image} 
                             alt={feature.title}
